@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+:root {
+    /* Standard Professional Light Theme Colors */
+    --bg-main: #f0f4f8; /* Soft, professional light slate background */
+    --card-bg: #ffffff;
+    --text-main: #334155; /* Dark slate for high readability */
+    --text-muted: #64748b;
+    --border-color: #e2e8f0;
+    
+    /* Standard Button Colors */
+    --primary: #2563eb; /* Trustworthy corporate blue */
+    --primary-hover: #1d4ed8;
+    --success: #16a34a; /* Standard clean green */
+    --success-hover: #15803d;
+    --danger: #ef4444;  /* Standard alert red */
+    --danger-hover: #dc2626;
+    --danger-bg: #fef2f2;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg-main);
+    color: var(--text-main);
+    margin: 0;
+    padding: 40px 20px;
+    min-height: 100vh;
+}
+
+.wrapper { 
+    max-width: 1100px; 
+    margin: auto; 
+}
+
+/* Clean Top Bar */
+.controls {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+button {
+    font-family: 'Poppins', sans-serif;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+}
+
+.btn-add {
+    background: var(--primary);
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+}
+.btn-add:hover { 
+    background: var(--primary-hover);
+    transform: translateY(-1px);
+}
+
+.btn-pdf {
+    background: var(--success);
+    box-shadow: 0 2px 4px rgba(22, 163, 74, 0.2);
+}
+.btn-pdf:hover { 
+    background: var(--success-hover);
+    transform: translateY(-1px);
+}
+
+/* Remove button */
+.btn-remove {
+    background: var(--danger-bg);
+    color: var(--danger);
+    border: 1px solid #fecaca;
+    padding: 0;
+    border-radius: 8px;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 26px; /* Aligns with inputs */
+}
+.btn-remove:hover { 
+    background: var(--danger); 
+    color: white; 
+}
+
+/* Main Content Area */
+#pdf-content {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+}
+
+.header-section { 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--border-color); 
+    padding-bottom: 20px; 
+    margin-bottom: 30px; 
+}
+
+h1 { 
+    font-weight: 600; 
+    font-size: 28px; 
+    margin: 0; 
+    color: #0f172a;
+}
+
+.date-stamp { 
+    color: var(--text-muted); 
+    font-weight: 500; 
+    font-size: 14px;
+}
+
+.task-list { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 16px; 
+}
+
+/* Task Rows */
+.task-row {
+    display: grid;
+    grid-template-columns: 1.2fr 3fr 1.2fr 1.2fr auto;
+    gap: 20px;
+    background: #f8fafc;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    transition: all 0.2s ease;
+}
+.task-row:hover { 
+    border-color: #cbd5e1; 
+    background: #ffffff;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.form-group { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 6px; 
+}
+
+label { 
+    color: var(--text-muted); 
+    font-size: 12px; 
+    font-weight: 600; 
+    text-transform: uppercase; 
+    letter-spacing: 0.5px; 
+}
+
+input, select {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    color: var(--text-main);
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.2s;
+}
+
+input:focus, select:focus { 
+    outline: none; 
+    border-color: var(--primary); 
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15); 
+}
+
+/* Customizing the date picker icon */
+::-webkit-calendar-picker-indicator { 
+    cursor: pointer; 
+    opacity: 0.6;
+}
+::-webkit-calendar-picker-indicator:hover {
+    opacity: 1;
+}
+
+/* =========================================
+   PDF Print Styles (Ensures perfect formatting when downloaded)
+   ========================================= */
+.printing {
+    padding: 20px !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+.printing h1 { color: black; }
+.printing .date-stamp { color: #555; }
+.printing .task-row { 
+    background: transparent !important; 
+    border: none; 
+    border-bottom: 1px solid #e2e8f0; 
+    border-radius: 0; 
+    box-shadow: none !important;
+    padding: 15px 0;
+}
+.printing input, .printing select { 
+    color: black !important; 
+    background: transparent !important; 
+    border: none !important; 
+    padding: 0;
+    font-weight: 500;
+}
+.printing label { color: #777 !important; }
+.printing .btn-remove { display: none !important; }
